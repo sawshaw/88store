@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>头部页面</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript" src="../resource/js/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="../resource/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../resource/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../resource/css/other.css" />
+  <style>
+  body{
+  background: url(../resource/image/header.jpg);
+  color:#fff;
+  }
+   .title{
+    font-size:36px;
+    float:left;
+    hight:50px;
+    text-shadow: 5px 5px 5px #fff;
+  }
+  </style>
+</head>
+<body>
+  <div class="title">商城后台管理</div>
+  <div style="float:right;margin:10px 50px auto auto; font-size:16px;">
+    <span>欢迎你&nbsp;</span>
+    <span id="adminName" style="font-size:24px;"></span>
+    <span>
+      <a style="color:#fff;text-decoration:none;"href="modify_pwd.jsp" target="_parent">&nbsp;修改密码</a>
+    </span>
+    <span>
+      <a style="color:#fff;text-decoration:none;"href="../adminLogout" target="_parent">&nbsp;退出</a>
+    </span>
+  </div>
+  <script type="text/javascript">
+$(function() {
+  $.ajax({
+    url : '../getAdminName',
+    type : 'get',
+    contentType : 'text/html'
+  }).done(function(data) {
+    $("#adminName").text(data);
+  }).fail(function(data) {
+  }).always(function() {
+    console.log("complete");
+  });
+});
+</script>
+</body>
+</html>

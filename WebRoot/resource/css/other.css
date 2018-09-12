@@ -1,0 +1,6 @@
+/*用于不需要common.css的设置*/
+body,html{
+	margin: 0;
+	padding: 0;
+	border: 0;
+}

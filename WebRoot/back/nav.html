@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <script type="text/javascript" src="../resource/js/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="../resource/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../resource/css/bootstrap.min.css" />
+  <title>菜单栏</title>
+  <style>
+  #left{
+   position:absolute;
+   margin:0;
+   height:100%;
+   width:100%;
+   background-color:#316AC1;        /*菜单栏的字体颜色#2B85C1,#34495E */
+   font-weight:bolder;
+   background: #F7F7F6 url(../resource/image/bg.jpg) no-repeat center center fixed;
+   background-size: cover;
+  }
+  #left ul{
+   list-style:none;
+   margin-left:-37px;
+  }
+   .menu1{
+    margin:0 auto;
+    padding:10px 10px 0px 10px;
+    font-size:16px;
+    border-bottom:1px solid #ccc;
+   }
+  .menu1 a{
+    text-decoration:none;
+    cursor:pointer;
+    color:#fff;
+  }
+  .menu1 a:hover{
+    text-decoration:none;
+    cursor:pointer;
+    color:#fff;
+  }
+  a{
+    text-decoration:none;
+    cursor:pointer;
+    color:#fff;
+  }
+  .menu2{
+    display:none;
+    list-style:none;
+    cursor:pointer;
+    padding:0px auto;
+  }
+  .menu2 li{
+    margin-left:-15px;
+    margin-right:-8px;
+    padding:10px;
+    font-size:16px;
+    border-bottom:1px solid #ccc;
+    background-color:#D6A398;
+  }
+  .menu1{
+    cursor:pointer;
+  }
+  .menu2 li:hover{
+    background-color:#D5C3D3;
+  }
+</style>
+</head>
+<body>
+  <div id="left">
+    <ul>
+      <li id="user_manage" class="menu1">
+        <a>用户管理</a>
+        <ul class="menu2">
+          <li>
+            <a href="../queryAllUser" target="showframe">管理用户</a>
+          </li>
+        </ul>
+      </li>
+      <li id="goods_manage" class="menu1">
+        <a>商品管理</a>
+        <ul class="menu2">
+          <li>
+            <a  href="../queryAllGoods" target="showframe">管理商品</a>
+          </li>
+        </ul>
+      </li>
+      <li id="order_manage" class="menu1">
+        <a>订单管理</a>
+        <ul class="menu2">
+          <li>
+            <a href="../queryAllOrder" target="showframe">管理订单</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <script type="text/javascript">
+   $(function(){
+   $(".menu1 >a").click(function(){
+      $(this).addClass("current").next().toggle().parent().siblings().children("a").removeClass("current").next().hide();
+  });
+  });
+    </script>
+</body>
+</html>
